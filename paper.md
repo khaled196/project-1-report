@@ -18,11 +18,12 @@ authors:
   - name: Nada Amin
     affiliation: 4
   - name: Deepak Unni
-    affiliation: 5
+    orcid: 0000-0002-3583-7340
+    affiliation: 1
   - name: William E. Byrd
     affiliation: 6
 affiliations:
-  - name: Molecular Ecosystems Biology, Berkeley Lab, USA
+  - name: Environmental Genomics and Systems Biology, Lawrence Berkeley National Laboratory, Berkeley, CA, USA
     index: 1
   - name: Database Center for Life Science, Research Organization of Information and Systems, Japan
     index: 2
@@ -140,7 +141,7 @@ available in the example directory of
 [SparqlProg](https://github.com/cmungall/sparqlprog) which provides
 sophisticated mapping of logic queries to SPARQL.
 
-## Extending the BioLink Model
+## Extending the Biolink Model
 
 <!--
     State the problem you worked on
@@ -150,21 +151,19 @@ sophisticated mapping of logic queries to SPARQL.
     Write up any future work
 -->
 
-The [BioLink Model](https://github.com/biolink/biolink-model) is a
+The [Biolink Model](https://github.com/biolink/biolink-model) is a
 data model developed for representing biological and biomedical
-knowledge. It includes a schema and generated objects for the
-data model and upper ontology. The BioLink Model was designed with the goal of
-standardizing the way information is represented in a graph store,
-regardless of the formalism used. The working group focused on
-extending this model to support representation of a wide variety of
-knowledge.
+knowledge. It was designed with the goal of standardizing the way 
+information is represented in a graph store, regardless of the formalism 
+used. The working group focused on extending this model to support 
+representation of a wide variety of knowledge.
 
 The following tasks were accomplished as part of the BioHackathon:
 
 \begin{enumerate}
-\item represent datasets, and their related metadata;
-\item represent family and pedigree information, to support clinical knowledge;
-\item and make the provenance model more rich and descriptive.
+\item represent datasets, and their related metadata
+\item represent family and pedigree information, to support clinical knowledge
+\item Make the provenance model more rich and descriptive
 \end{enumerate}
 
 For future work, the group will ensure that the new classes added to
