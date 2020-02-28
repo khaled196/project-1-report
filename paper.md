@@ -125,16 +125,26 @@ RDF format, supporting SPARQL access---for example,
 [NCBI Pubchem](https://pubchemdocs.ncbi.nlm.nih.gov/rdf) and the
 [EBI RDF platform](https://www.ebi.ac.uk/rdf/). Complicated SPARQL
 queries are required to effectively extract and combine information from multiple RDF
-databases. Composing complex SPARQL queries is tedious and error-prone due to
-the lack of abstract modularized structure in SPARQL. Thus, high-level
-programming methodology on the basis of SPARQL endpoints is desirable.  Here, we realize high-level programming by using Chris Mungall's
-[SPARQLProg](https://github.com/cmungall/sparqlprog)
-to compose query building blocks; SPARQLProg
-wraps access to existing SPARQL endpoints in the form of Prolog
-code. The examples we developed include programs accessing RDF databases of MBGD [@Uchiyama:2019], KEGG OC,
+databases.
+
+SPARQL queries lack the property of composability, there is no way to reuse modular components across queries.
+For example, to execute a range query on a genomic region using the FALDO model requires authoring a complex query over many triples. If we then wish to reuse parts of that query in a more complex query, we have to manually compose this together.
+
+[SPARQLProg](https://github.com/cmungall/sparqlprog) provides a way to define modular query components using logic programming. 
+
+For example, a 4-part predicate `feature_in_range` can be composed with a binary `has_mouse_ortholog` predicate:
+
+    feature_in_range(grch38:’X’,10000000,20000000, HumanGene),
+    has_mouse_ortholog(HumanGene, MouseGene)
+
+This will compile down to a more complex SPARQL query, and execute it against a remote endpoint.
+
+SPARQLProg includes bindings for many common biological SPARQL endpoint. As part of this hackathon we developed wrappers for RDF databases of MBGD [@Uchiyama:2019], KEGG OC,
 TogoVar, JCM, Allie, EBI BioSamples, UniProt, and DisGeNET. Future
 work includes using these Prolog codes as building blocks for
-integrative analysis. SPARQLProg is written in
+integrative analysis.
+
+SPARQLProg is written in
 SWI-Prolog and has a Python interface library. All code has been made
 available in the example directory of
 [SparqlProg](https://github.com/cmungall/sparqlprog) which provides
