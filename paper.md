@@ -19,7 +19,7 @@ authors:
     affiliation: 4
   - name: Deepak Unni
     affiliation: 5
-  - name: William~E.~Byrd
+  - name: <nobr>William E. Byrd</nobr>
     affiliation: 6
 affiliations:
   - name: Molecular Ecosystems Biology, Berkeley Lab, USA
