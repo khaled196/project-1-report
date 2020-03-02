@@ -1,5 +1,5 @@
 ---
-title: 'Logic Programming Working Group'
+title: 'Fukuoka Biohackathon 2019 report: Logic Programming Working Group'
 tags:
   - logic programming
 authors:
@@ -86,7 +86,7 @@ The working group:
 \begin{itemize}
 \item researched state-of-the-art mapping between graph stores;
 \item created methods for bridging between SPARQL and in-memory data representations using Prolog;
-\item extended the Biolink model;
+\item extended the [Biolink model](https://biolink.github.io/biolink-model/);
 \item and added Relational Biolink type inference for mediKanren.
 \end{itemize}
 
@@ -96,17 +96,18 @@ The working group:
 
 ## Existing logic programming facilities for SPARQL
 
-We researched current solutions for combining logic programming with
-SPARQL.
+The working group researched current solutions for combining logic
+programming with SPARQL.
 [ClioPatria](http://www.semantic-web-journal.net/system/files/swj1074.pdf)
 is an in-memory RDF quad-store tightly coupled with SWI-Prolog by Jan
-Wielemaker, the main author of SWI-Prolog [@WielemakerBHO15]. SWI-Prolog
-is published under a BSD license, and there even exist bindings for
+Wielemaker, the main author of SWI-Prolog
+[@WielemakerBHO15]. SWI-Prolog is published under a BSD license, and
+there even exist bindings for
 [ClioPatria and Python](http://wi.hwtk.de/WLP2018/Papers/WLP_2018_paper_4.pdf),
-for example, although we were unable to locate the source code. We think ClioPatria and
-SWI-Prolog are particularly useful for teaching, and for (in-memory)
-semantic web applications. SWI-Prolog comes with client libraries for
-SQL and SPARQL queries.
+for example, although we were unable to locate the source code. We
+think ClioPatria and SWI-Prolog are particularly useful for teaching,
+and for (in-memory) semantic web applications. SWI-Prolog comes with
+client libraries for SQL and SPARQL queries.
 
 ## Application of SPARQLProg to biological databases
 
@@ -119,30 +120,38 @@ SQL and SPARQL queries.
 -->
 
 
-A number of biological databases make their data available in
-RDF format, supporting SPARQL access---for example,
+A number of biological databases make their data available in RDF
+format, supporting SPARQL access---for example,
 [Uniprot](https://www.uniprot.org/),
 [NCBI Pubchem](https://pubchemdocs.ncbi.nlm.nih.gov/rdf) and the
 [EBI RDF platform](https://www.ebi.ac.uk/rdf/). Complicated SPARQL
-queries are required to effectively extract and combine information from multiple RDF
-databases.
+queries are required to effectively extract and combine information
+from multiple RDF databases.
 
-SPARQL queries lack the property of composability, there is no way to reuse modular components across queries.
-For example, to execute a range query on a genomic region using the FALDO model requires authoring a complex query over many triples. If we then wish to reuse parts of that query in a more complex query, we have to manually compose this together.
+SPARQL queries lack the property of composability, there is no way to
+reuse modular components across queries.  For example, to execute a
+range query on a genomic region using the FALDO model [@Bolleman:2016]
+requires authoring a complex query over many triples. If we then wish
+to reuse parts of that query in a more complex query, we have to
+manually compose this together.
 
-[SPARQLProg](https://github.com/cmungall/sparqlprog) provides a way to define modular query components using logic programming. 
+The working group worked on
+[SPARQLProg](https://github.com/cmungall/sparqlprog) which provides a
+way to define modular query components using logic programming.
 
-For example, a 4-part predicate `feature_in_range` can be composed with a binary `has_mouse_ortholog` predicate:
+For example, a 4-part predicate `feature_in_range` can be composed
+with a binary <nobr>`has_mouse_ortholog`</nobr> predicate:
 
     feature_in_range(grch38:’X’,10000000,20000000, HumanGene),
     has_mouse_ortholog(HumanGene, MouseGene)
 
 This will compile down to a more complex SPARQL query, and execute it against a remote endpoint.
 
-SPARQLProg includes bindings for many common biological SPARQL endpoint. As part of this hackathon we developed wrappers for RDF databases of MBGD [@Uchiyama:2019], KEGG OC,
-TogoVar, JCM, Allie, EBI BioSamples, UniProt, and DisGeNET. Future
-work includes using these Prolog codes as building blocks for
-integrative analysis.
+SPARQLProg includes bindings for many common biological SPARQL
+endpoint. As part of this hackathon we developed wrappers for RDF
+databases of MBGD [@Uchiyama:2019], KEGG OC, TogoVar, JCM, Allie, EBI
+BioSamples, UniProt, and DisGeNET. Future work includes using these
+Prolog codes as building blocks for integrative analysis.
 
 SPARQLProg is written in
 SWI-Prolog and has a Python interface library. All code has been made
@@ -162,9 +171,9 @@ sophisticated mapping of logic queries to SPARQL.
 
 The [BioLink Model](https://github.com/biolink/biolink-model) is a
 data model developed for representing biological and biomedical
-knowledge. It includes a schema and generated objects for the
-data model and upper ontology. The BioLink Model was designed with the goal of
-standardizing the way information is represented in a graph store,
+knowledge. It includes a schema and generated objects for the data
+model and upper ontology. The BioLink Model was designed with the goal
+of standardizing the way information is represented in a graph store,
 regardless of the formalism used. The working group focused on
 extending this model to support representation of a wide variety of
 knowledge.
@@ -195,31 +204,30 @@ ontologies.
 -->
 
 
-* Goal: implement a relational type inferencer for the Biolink model in miniKanren, which can be integrated into mediKanren
+The goal was to implement a relational type inferencer for the Biolink
+model in miniKanren, which can be integrated into mediKanren. The
+working group added a `yaml` subdirectory to the mediKanren GitHub
+page, and created multiple files in
+https://github.com/webyrd/mediKanren/yaml where `yaml2sexp.py`
+generates the `biolink.scm` file which contains an s-expression
+version of the Biolink yaml file. `yaml.scm` contains miniKanren
+relations, and Chez Scheme code that generates miniKanren relations
+based on `biolink.scm`. These are giant miniKanren `conde` clauses
+that can be though of as relational tables.  `yaml.scm` also contains
+tests for the relations.
 
-* Nada added a `yaml` subdirectory to the mediKanren GitHub page, and created multiple files:
+Future work:
 
-https://github.com/webyrd/mediKanren
-
-** `yaml2sexp.py` generates the `biolink.scm` file, which contains an s-expression version of the Biolink yaml file
-
-** `yaml.scm` contains miniKanren relations, and Chez Scheme code that generates miniKanren relations based on `biolink.scm` (basically these are giant `conde` clauses that can be though of as relational tables);  `yaml.scm` also contains tests for the relations.
-
-Chris and Deepak are guiding us wrt the Biolink semantics
-
-Future work
-
-* integrate into the Racket mediKanren code
-
-* integrate with the data categories in the KGs
-
-* create query editor with decent type error messages, autocomplete, query synthesis, etc.
+1. integrate into the Racket mediKanren code
+2. integrate with the data categories in the KGs
+3. create query editor with decent type error messages, autocomplete,
+   query synthesis, etc.
 
 # Discussion
 
 The working group concluded that there is ample scope for logic
 programming in bioinformatics. Future work inludes expansion of
-accessing semantic web databases using SPARQLProg, expanding
-the BioLink model, and adding dynamic SPARQL support to miniKanren.
+accessing semantic web databases using SPARQLProg, expanding the
+BioLink model, and adding dynamic SPARQL support to miniKanren.
 
 # References
