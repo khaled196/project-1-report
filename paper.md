@@ -1,5 +1,5 @@
 ---
-title: 'Fukuoka Biohackathon 2019 report: Logic Programming Working Group'
+title: 'Logic Programming Working Group'
 tags:
   - logic programming
 authors:
@@ -19,7 +19,7 @@ authors:
     affiliation: 4
   - name: Deepak Unni
     affiliation: 5
-  - name: William E. Byrd
+  - name: William~E.~Byrd
     affiliation: 6
 affiliations:
   - name: Molecular Ecosystems Biology, Berkeley Lab, USA
@@ -34,7 +34,7 @@ affiliations:
     index: 5
   - name: University of Alabama at Birmingham, USA
     index: 6
-date: 2 February 2020
+date: 3 March 2020
 bibliography: paper.bib
 ---
 
@@ -52,6 +52,9 @@ pasting above link (or yours) in
 -->
 
 # Introduction
+
+As part of the one week Biohackathion 2019 in Fukuoka Japan, we formed
+a working group on Logic Programming for the biomedical sciencies.
 
 Logic programming in the form of relational SQL queries on database
 tables and SPARQL queries on semantic web graph data stores, is
