@@ -154,8 +154,8 @@ This will compile down to a more complex SPARQL query, and execute it against a 
 
 SPARQLProg includes bindings for many common biological SPARQL
 endpoints. As part of this hackathon we developed wrappers for RDF
-databases of MBGD [@Uchiyama:2019], KEGG OC, TogoVar, JCM, Allie, EBI
-BioSamples, UniProt, and DisGeNET. Future work includes using these
+databases of MBGD [@Chiba:2015], KEGG OC, TogoVar, JCM, Allie, EBI
+BioSamples, UniProt, and DisGeNET [@Queralt:2016]. Future work includes using these
 Prolog codes as building blocks for integrative analysis.
 
 SPARQLProg is written in
