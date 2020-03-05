@@ -56,7 +56,7 @@ pasting above link (or yours) in
 # Introduction
 
 As part of the one week Biohackathion 2019 in Fukuoka Japan, we formed
-a working group on Logic Programming for the biomedical sciencies.
+a working group on Logic Programming for the biomedical sciences.
 
 Logic programming in the form of relational SQL queries on database
 tables and SPARQL queries on semantic web graph data stores, is
@@ -153,7 +153,7 @@ with a binary <nobr>`has_mouse_ortholog`</nobr> predicate:
 This will compile down to a more complex SPARQL query, and execute it against a remote endpoint.
 
 SPARQLProg includes bindings for many common biological SPARQL
-endpoint. As part of this hackathon we developed wrappers for RDF
+endpoints. As part of this hackathon we developed wrappers for RDF
 databases of MBGD [@Uchiyama:2019], KEGG OC, TogoVar, JCM, Allie, EBI
 BioSamples, UniProt, and DisGeNET. Future work includes using these
 Prolog codes as building blocks for integrative analysis.
@@ -218,7 +218,7 @@ multiple files in https://github.com/webyrd/mediKanren/yaml where
 s-expression version of the Biolink yaml file. `yaml.scm` contains
 miniKanren relations, and Chez Scheme code that generates miniKanren
 relations based on `biolink.scm`. These are giant miniKanren `conde`
-clauses that can be though of as relational tables.  `yaml.scm` also
+clauses that can be thought of as relational tables.  `yaml.scm` also
 contains tests for the relations.
 
 Future work:
@@ -231,7 +231,7 @@ Future work:
 # Discussion
 
 The working group concluded that there is ample scope for logic
-programming in bioinformatics. Future work inludes expansion of
+programming in bioinformatics. Future work includes expansion of
 accessing semantic web databases using SPARQLProg, expanding the
 BioLink model, and adding dynamic SPARQL support to miniKanren.
 
