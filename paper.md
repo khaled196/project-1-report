@@ -114,7 +114,7 @@ think ClioPatria and SWI-Prolog are particularly useful for teaching,
 and for (in-memory) semantic web applications. SWI-Prolog comes with
 client libraries for SQL and SPARQL queries.
 
-## Application of SPARQLProg to biological databases
+## Accessing biological databases using SPARQLProg
 
 <!--
     State the problem you worked on
@@ -124,45 +124,41 @@ client libraries for SQL and SPARQL queries.
     Write up any future work
 -->
 
-SPARQL provides a subset of what logic programming can do.
-The working group added to
-[SPARQLProg](https://github.com/cmungall/sparqlprog) which provides a
-way to define modular query components using logic programming.
-
 A number of biological databases make their data available in RDF
 format, supporting SPARQL access---for example,
 [Uniprot](https://www.uniprot.org/),
 [NCBI Pubchem](https://pubchemdocs.ncbi.nlm.nih.gov/rdf) and the
-[EBI RDF platform](https://www.ebi.ac.uk/rdf/). Complicated SPARQL
-queries are required to effectively extract and combine information
-from multiple RDF databases.
+[EBI RDF platform](https://www.ebi.ac.uk/rdf/).
+SPARQL provides a subset of what logic programming can do.
 
-SPARQL queries lack the property of composability, there is no way to
+However, SPARQL queries lack the property of composability and there is no way to
 reuse modular components across queries.  For example, to execute a
 range query on a genomic region using the FALDO model [@Bolleman:2016]
 requires authoring a complex query over many triples. If we then wish
 to reuse parts of that query in a more complex query, we have to
 manually compose this together.
 
+The working group added codes to
+[SPARQLProg](https://github.com/cmungall/sparqlprog) which provides a
+way to define modular query components using logic programming.
+SPARQLProg is written in
+SWI-Prolog and has a Python interface library. All code has been made
+available in the example directory of
+SPARQLProg which provides
+sophisticated mapping of logic queries to SPARQL.
 For example, a 4-part predicate `feature_in_range` can be composed
 with a binary <nobr>`has_mouse_ortholog`</nobr> predicate:
 
-    feature_in_range(grch38:’X’,10000000,20000000, HumanGene),
+    feature_in_range(grch38:’X’, 10000000, 20000000, HumanGene),
     has_mouse_ortholog(HumanGene, MouseGene)
 
 This will compile down to a more complex SPARQL query, and execute it against a remote endpoint.
 
 SPARQLProg includes bindings for many common biological SPARQL
-endpoints. As part of this hackathon we developed wrappers for RDF
+endpoints. As part of this hackathon we developed codes to access RDF
 databases of MBGD [@Chiba:2015], KEGG OC, TogoVar, JCM, Allie, EBI
 BioSamples, UniProt, and DisGeNET [@Queralt:2016]. Future work includes using these
 Prolog codes as building blocks for integrative analysis.
-
-SPARQLProg is written in
-SWI-Prolog and has a Python interface library. All code has been made
-available in the example directory of
-[SparqlProg](https://github.com/cmungall/sparqlprog) which provides
-sophisticated mapping of logic queries to SPARQL.
 
 ## Extending the Biolink Model
 
