@@ -130,7 +130,6 @@ format, supporting SPARQL access---for example,
 [NCBI Pubchem](https://pubchemdocs.ncbi.nlm.nih.gov/rdf) and the
 [EBI RDF platform](https://www.ebi.ac.uk/rdf/).
 SPARQL provides a subset of what logic programming can do.
-
 However, SPARQL queries lack the property of composability and there is no way to
 reuse modular components across queries.  For example, to execute a
 range query on a genomic region using the FALDO model [@Bolleman:2016]
