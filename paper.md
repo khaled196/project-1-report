@@ -146,6 +146,7 @@ SWI-Prolog and has a Python interface library. All code has been made
 available in the example directory of
 SPARQLProg which provides
 sophisticated mapping of logic queries to SPARQL.
+
 For example, a 4-part predicate `feature_in_range` can be composed
 with a binary <nobr>`has_mouse_ortholog`</nobr> predicate:
 
@@ -154,7 +155,7 @@ with a binary <nobr>`has_mouse_ortholog`</nobr> predicate:
 
 This will compile down to a more complex SPARQL query, and execute it against a remote endpoint.
 
-SPARQLProg includes bindings for many common biological SPARQL
+SPARQLProg now includes bindings for many common biological SPARQL
 endpoints. As part of this hackathon we developed codes to access RDF
 databases of MBGD [@Chiba:2015], KEGG OC, TogoVar, JCM, Allie, EBI
 BioSamples, UniProt, and DisGeNET [@Queralt:2016]. Future work includes using these
@@ -182,8 +183,8 @@ knowledge.
 The following tasks were accomplished as part of the BioHackathon:
 
 \begin{enumerate}
-\item represent datasets, and their related metadata
-\item represent family and pedigree information, to support clinical knowledge
+\item Represent datasets and their related metadata
+\item Represent family and pedigree information to support clinical knowledge
 \item Make the provenance model more rich and descriptive
 \end{enumerate}
 
@@ -206,7 +207,7 @@ ontologies.
 
 miniKanren is an embedded Domain Specific Language for logic
 programming.  The goal was to implement a relational type inferencer
-for the [Biolink model](https://biolink.github.io/biolink-model/) in
+for the [Biolink Model](https://biolink.github.io/biolink-model/) in
 miniKanren, which can be integrated into mediKanren. The working group
 added a `yaml` subdirectory to the mediKanren GitHub page, and created
 multiple files in https://github.com/webyrd/mediKanren/yaml where
@@ -217,11 +218,11 @@ relations based on `biolink.scm`. These are giant miniKanren `conde`
 clauses that can be thought of as relational tables.  `yaml.scm` also
 contains tests for the relations.
 
-Future work:
+Future work includes:
 
-1. integrate this work into the Racket mediKanren code
-2. integrate with the data categories in the KGs
-3. create query editor with decent type error messages, autocomplete,
+1. integrating this work into the Racket mediKanren code;
+2. integrating with the data categories in the KGs;
+3. and creating query editor with decent type error messages, autocompletion,
    query synthesis, etc.
 
 # Discussion
