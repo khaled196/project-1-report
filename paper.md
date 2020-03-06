@@ -99,7 +99,7 @@ The working group:
 # Results
 -->
 
-## Research existing logic programming facilities for SPARQL
+## Research of state-of-the-art logic programming facilities for SPARQL
 
 The working group researched current solutions for combining logic
 programming with SPARQL.
