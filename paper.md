@@ -77,13 +77,15 @@ represented as tables, trees (documents), and graphs. In
 bioinformatics we can make use of all these different data sources and
 have a query engine that can mine them all efficiently.
 
-Logic programming is well-suited for biological research. Essentially, a
-researcher writes a number of statements that include variables representing unknown information.  The logic
-engine then goes through the solution space (all data) to find possible
-matches (see figure \ref{fig}). Much more detail on the rationale and
-implementations of miniKanren and logic programming are well
-summarized in Byrd's book \emph{The Reasoned Schemer, Second Edition} [@reasoned2nd],
-PhD thesis [@ByrdPhD], and [online](https://www.youtube.com/watch?v=eQL48qYDwp4) [talks](https://www.youtube.com/watch?v=o3AHnyEf7IE).
+Logic programming is well-suited for biological research. Essentially,
+a researcher writes a number of statements that include variables
+representing unknown information.  The logic engine then goes through
+the solution space (all data) to find possible matches (see figure
+\ref{fig}). Much more detail on the rationale and implementations of
+miniKanren and logic programming are well summarized in Byrd's book
+\emph{The Reasoned Schemer, Second Edition} [@reasoned2nd], PhD thesis
+[@ByrdPhD], and [online](https://www.youtube.com/watch?v=eQL48qYDwp4)
+[talks](https://www.youtube.com/watch?v=o3AHnyEf7IE).
 
 The `Logic Programming' working group at the 2019 edition of the
 annual Japanese BioHackathon applied logic programming to various problems.
