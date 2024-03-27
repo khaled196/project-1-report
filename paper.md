@@ -9,18 +9,18 @@ authors:
   - name: khaled Jumah
     affiliation: 
     orcid: 
-  - name: zieng
+  - name: Ziying Yang
     affiliation: 
     orcid: 
-  - name: kate
+  - name: Katarzyna Kamieniecka
+    affiliation: 
+    orcid: 0009-0004-2454-5950
+  - name: Michael Baudis
     affiliation: 
     orcid: 
-  - name: Micheal
+  - name: Krzysztof Poterlowicz
     affiliation: 
-    orcid: 
-  - name: Krzysztof
-    affiliation: 
-    orcid: 
+    orcid: 0000-0001-6173-5674
 affiliations:
   - name: x
     index: 1
@@ -178,13 +178,20 @@ for the search tool taken from the GA4GH instructions. Sequence Queries, Range Q
 
 Future work includes:
 
-1. integrating this work into the Racket mediKanren code;
-2. integrating with the data categories in the KGs;
-3. and creating query editor with decent type error messages, autocompletion,
-   query synthesis, etc.
+1. 
+2. 
+3. 
 
 # Discussion
 
 
 
 # References
+
+{% cite Jacobsen2022 %}
+{% cite Jacobsen2021 %}
+{% cite Ladewig2022 %}
+{% cite o2011mongodb %}
+{% cite pos2021dna %}
+{% cite wei2011using %}
+{% cite zhang2009copy %}
