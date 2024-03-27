@@ -1,43 +1,43 @@
 ---
-title: 'Logic Programming Working Group'
+title: 'replace'
+title_short: 'replace'
 tags:
-  - logic programming
+  - beacon
+  - data managment
+  - galaxy
 authors:
-  - name: Chris Mungall
-    orcid: 0000-0002-8021-9162
-    affiliation: 1
-  - name: Hirokazu Chiba
-    affiliation: 2
-  - name: Shuichi Kawashima
-    affiliation: 2
-  - name: Yasunori Yamamoto
-    affiliation: 2
-  - name: Pjotr Prins
-    orcid: 0000-0002-8021-9162
-    affiliation: 3
-  - name: Nada Amin
-    affiliation: 4
-  - name: Deepak Unni
-    affiliation: 5
-    orcid: 0000-0002-3583-7340
-    affiliation: 1
-  - name: <nobr>William&nbsp;E.&nbsp;Byrd</nobr>
-    affiliation: 6
+  - name: khaled Jumah
+    affiliation: 
+    orcid: 
+  - name: zieng
+    affiliation: 
+    orcid: 
+  - name: kate
+    affiliation: 
+    orcid: 
+  - name: Micheal
+    affiliation: 
+    orcid: 
+  - name: Krzysztof
+    affiliation: 
+    orcid: 
 affiliations:
-  - name: Environmental Genomics and Systems Biology, Lawrence Berkeley National Laboratory, Berkeley, CA, USA
+  - name: x
     index: 1
-  - name: Database Center for Life Science, Research Organization of Information and Systems, Japan
+  - name: y
     index: 2
-  - name: Department of Genetics, Genomics and Informatics, The University of Tennessee Health Science Center, Memphis, TN, USA.
-    index: 3
-  - name: Harvard University, USA
-    index: 4
-  - name: Berkeley Lab, USA
-    index: 5
-  - name: University of Alabama at Birmingham, USA
-    index: 6
-date: 3 March 2020
-bibliography: paper.bib
+date: 13 December 2023
+cito-bibliography: paper.bib
+event: BioHackathonn2023
+biohackathon_name: "BioHackathon 2023"
+biohackathon_url:   "https://biohackathon-europe.org/"
+biohackathon_location: "Barcelona, Spain, 2023"
+group: Project 1 - A "batteries-included" open reference resource for human genomic copy number variants (CNV)
+# URL to project git repo --- should contain the actual paper.md:
+git_url: https://github.com/elixir-europe/biohackathon-projects-2023/tree/main/1
+# This is the short authors description that is used at the
+# bottom of the generated paper (typically the first two authors):
+authors_short: 
 ---
 
 <!--
@@ -55,68 +55,55 @@ pasting above link (or yours) in
 
 # Introduction
 
-As part of the one week Biohackathion 2019 in Fukuoka Japan, we formed
-a working group on Logic Programming for the biomedical sciences.
+Copy number variants (CNV) are genetic insertions or deletion mutations that lead to creating repeats in the sequence of the affected genome. 
+The repeats are varied between species and individuals from the same species [1]. Studying those variations helps in understanding the development 
+of certain diseases. Also helps in providing more information about population diversity and studying the interaction between the host and the microbiome. 
+Over the past years, much research has been done to find CNV in humans and study their effects. It led to the production of many collections 
+of open and private CNV datasets. Having those datasets in a format that allows searching for the area of interest CNV can help the researchers 
+interested in studying the structural effect of CNV in specific genomic positions. 
 
-Logic programming in the form of relational SQL queries on database
-tables and SPARQL queries on semantic web graph data stores, is
-well known to many bioinformaticians. More advanced logic programming,
-however, is underutilized in bioinformatics.  Prolog, for example, is
-a high-level programming language that has its roots in first-order
-logic or first-order predicate calculus.  Another example, miniKanren, is an embedded
-Domain Specific Language for logic programming. Core miniKanren is
-exceptionally simple, with only three logical
-operators and one interface operator [@reasoned2nd].
+Beacon is a protocol developed by The Global Alliance for Genomics and Health ([GA4GH](https://www.ga4gh.org/)) to simplify the connection between the researchers and the genomic data providers. 
+The first Beacon data access API was designed to query the genomic data collection to check the presence or the absence of specific genetic mutation. 
+Later, the yes or no Beacon approach was developed in version 2 to provide more information about the genomic data and perform more complex queries. This allows 
+clinicians to retrieve the phenotypic data, metadata, and disease-associated data from the Beacon database collections. The Beacon database is hosted on MongoDB, 
+a document-oriented database. The users can create many collections with many documents for the same database. The [MongoDB](https://www.mongodb.com/) is flexible in terms of the datasets 
+which can be hosted. They can be in various forms, formats, and schema documents. MongoDB provides a flexible method to interact with. Depending on the user's preference, 
+they can use Java [2] or Python ([PyMongo](https://pymongo.readthedocs.io/en/stable/index.html)) [3] scripts to interact with MongoDB. 
 
-![Logic programming resolver traverses the solution space to find all matches \label{fig}](./logic-programming.png)
+[Galaxy](https://usegalaxy.org/) is a web platform that hosts a diverse collection of Bioinformatics tools that can be used directly on the platform without installation, 
+infrastructure requirements or coding skills. The Galaxy community are contributing around the hour to integrate more tools and training materials 
+in different research areas such as biology, molecular biology, chemistry, and finance. Galaxy also provides the ability to create and reuse analytical Workflows 
+(pipelines made of many tools for a specific analysis). The Galaxy workflow is used to save time in reproducing the same analysis..  
 
-The introduction of logic programming is particularly relevant in the
-context of multi-model data representations where data can be accessed
-in memory as free data structures, but also on disk where data can be
-represented as tables, trees (documents), and graphs. In
-bioinformatics we can make use of all these different data sources and
-have a query engine that can mine them all efficiently.
+In this project, we will develop tools to help create a Beacon database for CNVs datasets obtained from the 1000 Human Genome (HG) project and wrap those tools into Galaxy. 
+The tools will cover the steps required for creating the beacon database, from the data and metadata pre-processing step, which converts them into the beacon-accepted format, 
+to import the data into the Beacon and query them.
 
-Logic programming is well-suited for biological research. Essentially,
-a researcher writes a number of statements that include variables
-representing unknown information.  The logic engine then goes through
-the solution space (all data) to find possible matches (see figure
-\ref{fig}). Much more detail on the rationale and implementations of
-miniKanren and logic programming are well summarized in Byrd's book
-\emph{The Reasoned Schemer, Second Edition} [@reasoned2nd], PhD thesis
-[@ByrdPhD], and [online](https://www.youtube.com/watch?v=eQL48qYDwp4)
-[talks](https://www.youtube.com/watch?v=o3AHnyEf7IE).
+### Project goals
 
-The `Logic Programming' working group at the 2019 edition of the
-annual Japanese BioHackathon applied logic programming to various problems.
-The working group:
-\begin{itemize}
-\item researched state-of-the-art mapping between graph stores and logic programming;
-\item created methods for bridging between SPARQL and in-memory data representations using Prolog;
-\item extended the Biolink model;
-\item and added Relational Biolink type inference for mediKanren.
-\end{itemize}
+For the BioHackathon 2023, we set a number of multifaceted goals:
 
-<!--
+- Develop Python tools to preprocess the 1000HG structural variant datastes into beacon format and interact with the Beacon MongoDB
+- wrap the developed tools on Galaxy to share them with the community
+- Create a Workflow pipeline to preprocess the data and upload them into Beacon
+- Design a training material to guide the potential beacon providers on how they can create their BEacon data, process the data, import the data into the Beacon and query it
+
+
+
 # Results
--->
 
-## Research of state-of-the-art logic programming facilities for SPARQL
+## Tools description 
 
-The working group researched current solutions for combining logic
-programming with SPARQL.
-[ClioPatria](http://www.semantic-web-journal.net/system/files/swj1074.pdf)
-is an in-memory RDF quad-store tightly coupled with SWI-Prolog by Jan
-Wielemaker, the main author of SWI-Prolog
-[@WielemakerBHO15]. SWI-Prolog is published under a BSD license, and
-there even exist bindings for
-[ClioPatria and Python](http://wi.hwtk.de/WLP2018/Papers/WLP_2018_paper_4.pdf),
-for example, although we were unable to locate the source code. We
-think ClioPatria and SWI-Prolog are particularly useful for teaching,
-and for (in-memory) semantic web applications. SWI-Prolog comes with
-client libraries for SQL and SPARQL queries.
+We developed four tools to help build the Beacon database for the 1000HG CNV datasets and interact with it (Figure 1). 
+The cnv-vcf2json and cnv-phenopacket tools extract the data from the input datasets and follow the Beacon schema to convert 
+them from their original formats (VCF and TSV) into JSON format. The Beacon2-import tool uploads the data as a collection into 
+the Beacon server. The Beacon2-search parses the beacon collection to find the datasets that match the search parameters.  
 
-## Accessing biological databases using SPARQLProg
+![The tools pipeline for data pre-processing and Beacon interaction. \label{fig}](./beacon-tools.png)
+
+
+
+### Extract the Phenopacket metadata using cnv-Phenopacket
 
 <!--
     State the problem you worked on
@@ -126,43 +113,18 @@ client libraries for SQL and SPARQL queries.
     Write up any future work
 -->
 
-A number of biological databases make their data available in RDF
-format, supporting SPARQL access---for example,
-[Uniprot](https://www.uniprot.org/),
-[NCBI Pubchem](https://pubchemdocs.ncbi.nlm.nih.gov/rdf) and the
-[EBI RDF platform](https://www.ebi.ac.uk/rdf/).
-SPARQL provides a subset of what logic programming can do.
-However, SPARQL queries lack the property of composability and there is no way to
-reuse modular components across queries.  For example, to execute a
-range query on a genomic region using the FALDO model [@Bolleman:2016]
-requires authoring a complex query over many triples. If we then wish
-to reuse parts of that query in a more complex query, we have to
-manually compose this together.
+The GA4GH developed a standard schema for sharing the phenotypic data, including the phenotypic features [4],
+and the individual’s observable traits such as the signs, symptoms, and disease type [5]. Those features are 
+used by researchers and clinicians for computational analysis to build data biobanks and databases and use phenotypic 
+information to help in diagnosing and searching for various health cases like cancer and other diseases [4]. 
+ 
+We followed the GA4GH Biosample schema [6] to develop the cnv-phenopacket Python tool. The tool extracts the phenotypic features
+from the 1000HG input metadata file and uses the GA4GH Biosample schema to build the phenotypic output file (Figure 2) from the input metadata tab separated value (TSV) file.
 
-The working group added codes to
-[SPARQLProg](https://github.com/cmungall/sparqlprog) which provides a
-way to define modular query components using logic programming.
-SPARQLProg is written in
-SWI-Prolog and has a Python interface library. All code has been made
-available in the example directory of
-SPARQLProg which provides
-sophisticated mapping of logic queries to SPARQL.
+I NEED BETTER FIGURE AND BETTER DISCTIPTION
 
-For example, a 4-part predicate `feature_in_range` can be composed
-with a binary <nobr>`has_mouse_ortholog`</nobr> predicate:
 
-    feature_in_range(grch38:’X’, 10000000, 20000000, HumanGene),
-    has_mouse_ortholog(HumanGene, MouseGene)
-
-This will compile down to a more complex SPARQL query, and execute it against a remote endpoint.
-
-SPARQLProg now includes bindings for many common biological SPARQL
-endpoints. As part of this hackathon we developed codes to access RDF
-databases of MBGD [@Chiba:2015], KEGG OC, TogoVar, JCM, Allie, EBI
-BioSamples, UniProt, and DisGeNET [@Queralt:2016]. Future work includes using these
-Prolog codes as building blocks for integrative analysis.
-
-## Extending the Biolink Model
+### Convert the data into Beacon frindly format using cnv-vcf2json 
 
 <!--
     State the problem you worked on
@@ -172,28 +134,14 @@ Prolog codes as building blocks for integrative analysis.
     Write up any future work
 -->
 
-The [Biolink Model](https://github.com/biolink/biolink-model) is a
-data model developed for representing biological and biomedical
-knowledge. It includes a schema and generated objects for the data
-model and upper ontology. The BioLink Model was designed with the goal
-of standardizing the way information is represented in a graph store,
-regardless of the formalism used. The working group focused on
-extending this model to support representation of a wide variety of
-knowledge.
+To query the genomic variants using the Beacon2 protocol, we developed the cnv-vcf2json python tool to convert the data from the
+raw VCF format into Beacon quarriable format (JSON). The tools follow a configured schema to extract the CNV-related information 
+from the 1000HG structural variants file into an output JSON file.
 
-The following tasks were accomplished as part of the BioHackathon:
 
-\begin{enumerate}
-\item Represent datasets and their related metadata
-\item Represent family and pedigree information to support clinical knowledge
-\item Make the provenance model more rich and descriptive
-\end{enumerate}
+I NEED BETTER FIGURE AND BETTER DISCTIPTION AND FOLLOW THE STEPS ABOVE
 
-For future work, the group will ensure that the new classes added to
-the model will have appropriate mappings to other schemas and
-ontologies.
-
-##  Relational Biolink type inference for mediKanren
+###  Upload the data into Beacone MondoDB using Beacon2-import
 
 <!--
     State the problem you worked on
@@ -206,18 +154,27 @@ ontologies.
 
 -->
 
-miniKanren is an embedded Domain Specific Language for logic
-programming.  The goal was to implement a relational type inferencer
-for the [Biolink Model](https://biolink.github.io/biolink-model/) in
-miniKanren, which can be integrated into mediKanren. The working group
-added a `yaml` subdirectory to the mediKanren GitHub page, and created
-multiple files in https://github.com/webyrd/mediKanren/yaml where
-`yaml2sexp.py` generates the `biolink.scm` file which contains an
-s-expression version of the Biolink yaml file. `yaml.scm` contains
-miniKanren relations, and Chez Scheme code that generates miniKanren
-relations based on `biolink.scm`. These are giant miniKanren `conde`
-clauses that can be thought of as relational tables.  `yaml.scm` also
-contains tests for the relations.
+MongoDB provides a fixable method to upload the data into the Beacon Database. PyMongo is one of the packages that use Python to interact with MongoDB. 
+We developed a tool that uses PyMongo to import the Beacon formatted JSON structural variant files from the local environment or Galaxy history and 
+import it into the specified of choice MongoDB Beacon. The tool connects to the MongoDB using the server port and host address. The user chooses the 
+desired database and collection name he wants to create on MongoDB.
+
+###  Search the Beacon MongoDB using Beacon2-search
+
+<!--
+    State the problem you worked on
+    Give the state-of-the art/plan
+    Describe what you have done/results starting with The working group created...
+    Write a conclusion
+    Write up any future work
+
+* Remote member Nada Amin, Chris Mungall, Deepak Unni, Will Byrd
+
+-->
+
+The Beacon protocol purpose is to provide support to researchers and clinicians to query the genomic variants datasets hosted on a Beacon server. 
+The search tool queries the Beacon database specific collection to find the datasets that match the search parameters.  There are four queries’ modes 
+for the search tool taken from the GA4GH instructions. Sequence Queries, Range Queries, GeneId Queries and Bracket Queries.
 
 Future work includes:
 
@@ -228,9 +185,6 @@ Future work includes:
 
 # Discussion
 
-The working group concluded that there is ample scope for logic
-programming in bioinformatics. Future work includes expansion of
-accessing semantic web databases using SPARQLProg, expanding the
-BioLink model, and adding dynamic SPARQL support to miniKanren.
+
 
 # References
