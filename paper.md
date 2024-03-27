@@ -188,10 +188,11 @@ Future work includes:
 
 # References
 
-{% cite Jacobsen2022 %}
-{% cite Jacobsen2021 %}
-{% cite Ladewig2022 %}
-{% cite o2011mongodb %}
-{% cite pos2021dna %}
-{% cite wei2011using %}
-{% cite zhang2009copy %}
+Zhang, F., et al., Copy number variation in human health, disease, and evolution. Annual review of genomics and human genetics, 2009. 10: p. 451-481.
+Wei-Ping, Z., L. Ming-Xin, and C. Huan. Using MongoDB to implement textbook management system instead of MySQL. in 2011 IEEE 3rd International Conference on Communication Software and Networks. 2011. IEEE.
+O'higgins, N., MongoDB and Python: Patterns and processes for the popular document-oriented database. 2011: " O'Reilly Media, Inc.".
+Jacobsen, J.O., et al., The GA4GH Phenopacket schema: A computable representation of clinical data for precision medicine. medRxiv, 2021: p. 2021.11. 27.21266944.
+Jacobsen, J.O., et al., The GA4GH Phenopacket schema defines a computable representation of clinical data. Nature biotechnology, 2022. 40(6): p. 817-820.
+Ladewig, M.S., et al., GA4GH phenopackets: A practical introduction. Advanced Genetics, 2023. 4(1): p. 2200016.
+
+
