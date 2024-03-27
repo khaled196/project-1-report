@@ -37,7 +37,7 @@ group: Project 1 - A "batteries-included" open reference resource for human geno
 git_url: https://github.com/elixir-europe/biohackathon-projects-2023/tree/main/1
 # This is the short authors description that is used at the
 # bottom of the generated paper (typically the first two authors):
-authors_short: 
+authors_short: khaled Jumah & Ziying Yang \emph{et al.}
 ---
 
 <!--
