@@ -124,7 +124,7 @@ Creating a schema for those can help the beacon users to find more information a
 So, we followed the GA4GH Biosample schema [[6](https://doi.org/10.1002/ggn2.202200016)] to develop the cnv-phenopacket Python tool. The tool extracts the phenotypic features
 from the 1000HG input metadata file and uses the GA4GH Biosample schema to build the phenotypic output file (Figure 2).
 
-![Workflow of cnv-phenopacket Python tool \label{fig}](./cnv-phenopacket-workflow.png)
+![Workflow of cnv-phenopacket Python tool. \label{fig}](./cnv-phenopacket-workflow.png)
 
 
 ### Convert the data into Beacon frindly format using cnv-vcf2json 
