@@ -118,8 +118,8 @@ and the individual’s observable traits such as the signs, symptoms, and diseas
 used by researchers and clinicians for computational analysis to build data biobanks and databases and use phenotypic 
 information to help in diagnosing and searching for various health cases like cancer and other diseases [[4](https://doi.org/10.1101/2021.11.27.21266944)]. 
 
-The metadata shared with the 1000HG structural varient sampels contains some informations about the sampels including their gender, biosample ID, sample name , etc. 
-Creating a schema for those can help the beacon users to find more information about the structural varoents in any sample by searching the metadata scheam. 
+The metadata shared with the 1000HG structural variant samples contains information about the samples, including their gender, biosample ID, sample name, etc. 
+Creating a schema for those can help the beacon users find more information about the structural variants in any sample by searching the metadata schema. 
 
 So, we followed the GA4GH Biosample schema [[6](https://doi.org/10.1002/ggn2.202200016)] to develop the cnv-phenopacket Python tool. The tool extracts the phenotypic features
 from the 1000HG input metadata file and uses the GA4GH Biosample schema to build the phenotypic output file (Figure 2).
