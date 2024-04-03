@@ -56,7 +56,7 @@ pasting above link (or yours) in
 # Introduction
 
 Copy number variants (CNV) are genetic insertions or deletion mutations that lead to creating repeats in the sequence of the affected genome. 
-The repeats are varied between species and individuals from the same species [1]. Studying those variations helps in understanding the development 
+The repeats are varied between species and individuals from the same species [1](#1). Studying those variations helps in understanding the development 
 of certain diseases. Also helps in providing more information about population diversity and studying the interaction between the host and the microbiome. 
 Over the past years, much research has been done to find CNV in humans and study their effects. It led to the production of many collections 
 of open and private CNV datasets. Having those datasets in a format that allows searching for the area of interest CNV can help the researchers 
@@ -68,7 +68,7 @@ Later, the yes or no Beacon approach was developed in version 2 to provide more 
 clinicians to retrieve the phenotypic data, metadata, and disease-associated data from the Beacon database collections. The Beacon database is hosted on MongoDB, 
 a document-oriented database. The users can create many collections with many documents for the same database. The [MongoDB](https://www.mongodb.com/) is flexible in terms of the datasets 
 which can be hosted. They can be in various forms, formats, and schema documents. MongoDB provides a flexible method to interact with. Depending on the user's preference, 
-they can use Java [2] or Python ([PyMongo](https://pymongo.readthedocs.io/en/stable/index.html)) [3] scripts to interact with MongoDB. 
+they can use Java [2](https://doi.org/10.1109/ICCSN.2011.6013720) or Python ([PyMongo](https://pymongo.readthedocs.io/en/stable/index.html)) [2](https://books.google.co.uk/books?hl=en&lr=&id=ZWlTu8oU3mcC&oi=fnd&pg=PR3&dq=MongoDB+and+Python:+Patterns+and+processes+for+the+popular+document-oriented+database&ots=vs9rLgKm9r&sig=iN8CqDqU6_KYGl6sP9jtKko2_8I&redir_esc=y#v=onepage&q=MongoDB%20and%20Python%3A%20Patterns%20and%20processes%20for%20the%20popular%20document-oriented%20database&f=false) scripts to interact with MongoDB. 
 
 [Galaxy](https://usegalaxy.org/) is a web platform that hosts a diverse collection of Bioinformatics tools that can be used directly on the platform without installation, 
 infrastructure requirements or coding skills. The Galaxy community are contributing around the hour to integrate more tools and training materials 
@@ -113,12 +113,14 @@ the Beacon server. The Beacon2-search parses the beacon collection to find the d
     Write up any future work
 -->
 
-The GA4GH developed a standard schema for sharing the phenotypic data, including the phenotypic features [4],
-and the individual’s observable traits such as the signs, symptoms, and disease type [5]. Those features are 
+The GA4GH developed a standard schema for sharing the phenotypic data, including the phenotypic features [4](https://doi.org/10.1101/2021.11.27.21266944),
+and the individual’s observable traits such as the signs, symptoms, and disease type [5](https://doi.org/10.1038/s41587-022-01357-4). Those features are 
 used by researchers and clinicians for computational analysis to build data biobanks and databases and use phenotypic 
-information to help in diagnosing and searching for various health cases like cancer and other diseases [4]. 
- 
-We followed the GA4GH Biosample schema [6] to develop the cnv-phenopacket Python tool. The tool extracts the phenotypic features
+information to help in diagnosing and searching for various health cases like cancer and other diseases [4](https://doi.org/10.1101/2021.11.27.21266944). 
+
+I will talk for the data set they provid metadata with some information for the samples we extracted them in the phenopaket standard 
+
+We followed the GA4GH Biosample schema [6](https://doi.org/10.1002/ggn2.202200016) to develop the cnv-phenopacket Python tool. The tool extracts the phenotypic features
 from the 1000HG input metadata file and uses the GA4GH Biosample schema to build the phenotypic output file (Figure 2) from the input metadata tab separated value (TSV) file.
 
 I NEED BETTER FIGURE AND BETTER DISCTIPTION
@@ -188,11 +190,28 @@ Future work includes:
 
 # References
 
+<a id="1"></a> 
+
 1. Zhang, F., et al., Copy number variation in human health, disease, and evolution. Annual review of genomics and human genetics, 2009. 10: p. 451-481.
+
+<a id="2"></a> 
+
 2. Wei-Ping, Z., L. Ming-Xin, and C. Huan. Using MongoDB to implement textbook management system instead of MySQL. in 2011 IEEE 3rd International Conference on Communication Software and Networks. 2011. IEEE.
+
+<a id="3"></a> 
+
 3. O'higgins, N., MongoDB and Python: Patterns and processes for the popular document-oriented database. 2011: " O'Reilly Media, Inc.".
+
+<a id="4"></a> 
+
 4. Jacobsen, J.O., et al., The GA4GH Phenopacket schema: A computable representation of clinical data for precision medicine. medRxiv, 2021: p. 2021.11. 27.21266944.
+
+<a id="5"></a> 
+
 5. Jacobsen, J.O., et al., The GA4GH Phenopacket schema defines a computable representation of clinical data. Nature biotechnology, 2022. 40(6): p. 817-820.
+
+<a id="6"></a> 
+
 6. Ladewig, M.S., et al., GA4GH phenopackets: A practical introduction. Advanced Genetics, 2023. 4(1): p. 2200016.
 
 
